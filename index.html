@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grayhek Family Digital Wellbeing | Secure Digital Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4a6fa5;
+            --secondary: #ff9a8b;
+            --accent: #6b5b95;
+            --light: #f7f9fc;
+            --text: #333;
+            --white: #ffffff;
+            --shadow: 0 6px 15px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+            --border-radius: 16px;
+            --spacing: 1rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+            background-image: radial-gradient(circle at 10% 20%, rgba(255, 200, 124, 0.1) 0%, rgba(255, 255, 255, 0) 90%);
+            overflow-x: hidden;
+        }
+
+        @font-face {
+            font-family: 'Nunito';
+            font-style: normal;
+            font-weight: 400;
+            src: url(https://fonts.gstatic.com/s/nunito/v25/XRXI3I6Li01BKofiOc5wtlZ2di8HDLshdTQ3iw.woff2) format('woff2');
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        header {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo i {
+            color: var(--secondary);
+            background: rgba(255, 154, 139, 0.1);
+            padding: 0.5rem;
+            border-radius: 50%;
+        }
+
+        .hero {
+            padding: 6rem 0 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            color: var(--text);
+        }
+
+        .hero-graphic {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .device {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            width: 120px;
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .device:hover {
+            transform: translateY(-10px);
+        }
+
+        .device i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .device:nth-child(2) i {
+            color: var(--secondary);
+        }
+
+        .device:nth-child(3) i {
+            color: var(--accent);
+        }
+
+        .device::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 0 0 24px 24px;
+            bottom: 0;
+            left: 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(107, 91, 149, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(107, 91, 149, 0.4);
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            bottom: -10px;
+            left: 20%;
+            border-radius: 10px;
+        }
+
+        .section-title p {
+            color: var(--text);
+            max-width: 700px;
+            margin: 1.5rem auto 0;
+            font-size: 1.2rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+
+        .feature-card i {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            background: rgba(74, 111, 165, 0.1);
+            width: 90px;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .feature-card p {
+            color: var(--text);
+            margin-bottom: 1.5rem;
+        }
+
+        .family-goals {
+            background: linear-gradient(135deg, var(--primary) 0%, #3a5a8a 100%);
+            color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 4rem;
+            margin: 5rem auto;
+            max-width: 1000px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .family-goals::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.15;
+        }
+
+        .family-goals h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .family-goals p {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            position: relative;
+        }
+
+        .family-goals ul {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .family-goals li {
+            padding: 0.8rem 0 0.8rem 3rem;
+            position: relative;
+            font-size: 1.2rem;
+        }
+
+        .family-goals li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 28px;
+            height: 28px;
+            background: var(--secondary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .contact {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 4rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact h2 {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 2.5rem;
+            font-size: 2.5rem;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .contact-info p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-email {
+            display: inline-block;
+            background: rgba(74, 111, 165, 0.1);
+            color: var(--primary);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-email:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 3rem 0 2rem;
+            text-align: center;
+            margin-top: 6rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .footer-logo i {
+            color: var(--secondary);
+        }
+
+        .footer-info {
+            max-width: 600px;
+            margin: 1rem auto;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .copyright {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .bounce {
+            animation: bounce 2s ease infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-20px);}
+            60% {transform: translateY(-10px);}
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .family-goals {
+                padding: 2rem;
+            }
+            
+            .contact {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fas fa-house-chimney-heart"></i>
+                    <span>Grayhek Family Digital Wellbeing</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Secure Digital Management for Our Family</h1>
+                <p>A safe, protected environment for our family's devices and digital experiences</p>
+                <a href="#goals" class="btn">Our Safety Approach</a>
+                
+                <div class="hero-graphic">
+                    <div class="device floating">
+                        <i class="fas fa-tablet-screen-button"></i>
+                        <span>Tablets</span>
+                    </div>
+                    <div class="device floating" style="animation-delay: 0.5s;">
+                        <i class="fas fa-laptop"></i>
+                        <span>Laptops</span>
+                    </div>
+                    <div class="device floating" style="animation-delay: 1s;">
+                        <i class="fas fa-mobile-screen-button"></i>
+                        <span>Phones</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Digital Protection</h2>
+                <p>We prioritize safety and organization for all family devices</p>
+            </div>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Secure Environment</h3>
+                    <p>All devices are protected with the latest security measures to ensure a safe digital experience for every family member.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <i class="fas fa-user-lock"></i>
+                    <h3>Privacy First</h3>
+                    <p>We respect everyone's privacy while maintaining necessary oversight to keep our digital space secure.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <i class="fas fa-sync-alt"></i>
+                    <h3>Central Management</h3>
+                    <p>Devices are managed from a single location to ensure consistency and efficiency in our digital ecosystem.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Family Goals Section -->
+    <section id="goals">
+        <div class="container">
+            <div class="family-goals">
+                <h2>Our Family's Digital Goals</h2>
+                <p>We've established this digital presence to create a secure environment for our family's devices. Our priorities:</p>
+                
+                <ul>
+                    <li>Protect every family member's privacy and security</li>
+                    <li>Manage devices efficiently from a central location</li>
+                    <li>Ensure age-appropriate content and screen time</li>
+                    <li>Maintain a healthy balance between digital and real-world activities</li>
+                    <li>Prepare our children for responsible technology use</li>
+                    <li>Keep all devices updated and secure</li>
+                </ul>
+                
+                <p>This website serves as our family's digital home base for managing devices safely and effectively.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section>
+        <div class="container">
+            <div class="contact">
+                <h2>Contact Our Family</h2>
+                
+                <div class="contact-info">
+                    <p>For inquiries about our device management approach:</p>
+                    <a href="mailto:FamilyDevicesContact@grayhek.com" class="contact-email">
+                        <i class="fas fa-envelope"></i> FamilyDevicesContact@grayhek.com
+                    </a>
+                </div>
+                
+                <div class="contact-info">
+                    <p>This website was created to establish our family's digital presence for secure device management purposes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-house-chimney-heart bounce"></i>
+                    <span>Grayhek Family Digital Wellbeing</span>
+                </div>
+                
+                <p class="footer-info">A secure digital environment for our family's devices and online experiences.</p>
+                
+                <p class="copyright">© 2025 Grayhek Family Digital Wellbeing. Created for secure family device management.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animations for interactive elements
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
